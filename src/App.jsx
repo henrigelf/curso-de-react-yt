@@ -22,11 +22,10 @@ function App() {
 
       // PEGAR OS DADOS QUE ELA RETORNA
       const data = await response.json();
-
       // ARMAZENAR/PERSISTIR ESSES DADOS NO STATES
       setTasks(data);
     };
-    fetchTasks();
+    // fetchTasks();
   }, []);
   function onTaskClick(taskId) {
     const newTasks = tasks.map((task) => {

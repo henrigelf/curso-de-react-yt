@@ -5,7 +5,7 @@ import { v4 } from "uuid";
 import Title from "./components/Title";
 function App() {
   const [tasks, setTasks] = useState(
-    JSON.parse(localStorage.getItem("tasks") || [])
+    JSON.parse(localStorage.getItem("tasks")) || []
   );
 
   useEffect(() => {
@@ -25,8 +25,10 @@ function App() {
       // ARMAZENAR/PERSISTIR ESSES DADOS NO STATES
       setTasks(data);
     };
+    // SE QUISER, VOCÊ PODE CHAMAR UMA API PARA PEGAR AS TAREFAS
     // fetchTasks();
   }, []);
+
   function onTaskClick(taskId) {
     const newTasks = tasks.map((task) => {
       //PRECISA ATUALIZAR ESSA TAREFA
@@ -59,7 +61,7 @@ function App() {
   return (
     <div className="w-screen h-screen bg-slate-500 flex justify-center p-6">
       <div className="W-[500px] space-y-4">
-        <Title>Gerenciador de tarefas 2</Title>
+        <Title>Gerenciador de tarefas</Title>
         <AddTasks onAddTaskClick={onAddTaskClick} />
         <Tasks
           tasks={tasks}
